@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Options from './Options';
 
 const Sentence = ({ exercice, score, setScore }) => {
@@ -6,7 +6,8 @@ const Sentence = ({ exercice, score, setScore }) => {
     const [display1, setDisplay1] = useState('block');
     const [display2, setDisplay2] = useState('none');
     const { id, sentence, good, bad } = exercice;
-    const options = shuffleArray([good, bad]);
+
+    const [options, setOptions] = useState(shuffleArray([good, bad]));
 
     function shuffleArray(array) {
         for (let i = array.length - 1; i > 0; i--) {
